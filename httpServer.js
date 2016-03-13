@@ -19,9 +19,10 @@ function startServer(route) {
 	console.log("HTTP server running.");
 }
 
-function sendResponse(response) {
-	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.write("Hello dude!");
+function sendResponse(response, text, code) {
+    console.log("Sending response.")
+	response.writeHead(404, {"Content-Type": "text/plain"});
+	response.write(text);
 	response.end();
 }
 
