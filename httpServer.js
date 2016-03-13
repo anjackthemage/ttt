@@ -21,7 +21,7 @@ function startServer(route) {
 
 function sendResponse(response, text, code) {
     console.log("Sending response.")
-	response.writeHead(404, {"Content-Type": "text/plain"});
+	response.writeHead(code, {"Content-Type": "text/plain"});
 	response.write(text);
 	response.end();
 }
