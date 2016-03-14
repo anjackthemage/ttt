@@ -8,8 +8,10 @@ function routeRequest(pathname, response) {
         routeHandler[pathname](response);
     }
     else {
+        // DEBUG START
         console.log("Page " + pathname + " not found.");
-        httpServer.sendResponse(response, "Error 404: Page not found, man.", 404);
+        // DEBUG END
+        httpServer.sendResponse(response, "<h3>Error 404: Dave's not here, man.<\h3>", 404);
     }
 }
 
@@ -18,17 +20,21 @@ exports.routeRequest = routeRequest;
 var routeHandler = [];
 
 routeHandler["/"] = function (response) {
-    httpServer.sendResponse(response, "Portal Page", 404);
+    var content = "<h1>Portal Page<\h1>";
+    httpServer.sendResponse(response, content, 404);
 }
 
 routeHandler["/monitor"] = function (response) {
-    httpServer.sendResponse(response, "Public View", 404);
+    var content = "<h1>Public View<\h1>";
+    httpServer.sendResponse(response, content, 404);
 }
 
 routeHandler["/moderator"] = function (response) {
-    httpServer.sendResponse(response, "DM View", 404);
+    var content = "<h1>Moderator View<\h1>";
+    httpServer.sendResponse(response, content, 404);
 }
 
 routeHandler["/player"] = function (response) {
-    httpServer.sendResponse(response, "Player View", 404);
+    var content = "<h1>Player View<\h1>";
+    httpServer.sendResponse(response, content, 404);
 }

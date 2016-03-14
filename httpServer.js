@@ -4,8 +4,8 @@ var url = require("url");
 function startServer(route) {
 	function onRequest(request, response) {
 		var pathname = url.parse(request.url).pathname;
+        // DEBUG START
 		console.log("Request received: " + pathname);
-		// DEBUG START
 		console.log("Request " + request.method + ": " + pathname + ".\nHeaders:\n", request.headers, "\nTrailers:\n", request.trailers);
 		// DEBUG END
         
@@ -16,12 +16,16 @@ function startServer(route) {
 	}
 
 	http.createServer(onRequest).listen(8080);
+    // DEBUG START
 	console.log("HTTP server running.");
+    // DEBUG END
 }
 
 function sendResponse(response, text, code) {
+    // DEBUG START
     //console.log("Sending response.")
-	response.writeHead(code, {"Content-Type": "text/plain"});
+    // DEBUG END
+	response.writeHead(code, {"Content-Type": "text/html"});
 	response.write(text);
 	response.end();
 }
