@@ -21,12 +21,12 @@ function startServer(route) {
     // DEBUG END
 }
 
-function sendResponse(response, text, code) {
+function sendResponse(response, content, code) {
     // DEBUG START
     //console.log("Sending response.")
     // DEBUG END
 	response.writeHead(code, {"Content-Type": "text/html"});
-	response.write(text);
+	response.write(content);
 	response.end();
 }
 

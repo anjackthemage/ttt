@@ -21,20 +21,20 @@ var routeHandler = [];
 
 routeHandler["/"] = function (response) {
     var content = "<h1>Portal Page<\h1>";
-    httpServer.sendResponse(response, content, 404);
+    httpServer.sendResponse(response, content, 200);
 }
 
 routeHandler["/monitor"] = function (response) {
     var content = "<h1>Public View<\h1>";
-    httpServer.sendResponse(response, content, 404);
+    httpServer.sendResponse(response, content, 200);
 }
 
 routeHandler["/moderator"] = function (response) {
     var content = "<h1>Moderator View<\h1>";
-    httpServer.sendResponse(response, content, 404);
+    httpServer.sendResponse(response, content, 200);
 }
 
 routeHandler["/player"] = function (response) {
     var content = "<h1>Player View<\h1>";
-    httpServer.sendResponse(response, content, 404);
+    httpServer.sendResponse(response, content, 200);
 }

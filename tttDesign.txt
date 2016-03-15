@@ -1,0 +1,7 @@
+tttDB:
+	Tables: 
+		Characters (*game name, character name, turn order/init, stats)
+		*Messages(*game name, sender character name, destination character name[s], content)
+		*Games(game name)
+		[* = planned additions]
+		
