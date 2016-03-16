@@ -1,15 +1,16 @@
 var httpServer = require("./httpServer");
+var dbConnector = require("./dbConnector");
 
-function routeRequest(pathname, response) {
+function routeRequest(path_name, response) {
 	// DEBUG START
-	console.log("Routing request to: " + pathname)
+	console.log("Routing request to: " + path_name)
 	// DEBUG END
-	if (typeof routeHandler[pathname] === 'function') {
-        routeHandler[pathname](response);
+	if (typeof route_handler[path_name] === 'function') {
+        route_handler[path_name](response);
     }
     else {
         // DEBUG START
-        console.log("Page " + pathname + " not found.");
+        console.log("Page " + path_name + " not found.");
         // DEBUG END
         httpServer.sendResponse(response, "<h3>Error 404: Dave's not here, man.<\h3>", 404);
     }
@@ -17,24 +18,25 @@ function routeRequest(pathname, response) {
 
 exports.routeRequest = routeRequest;
 
-var routeHandler = [];
+var route_handler = [];
 
-routeHandler["/"] = function (response) {
+route_handler["/"] = function (response) {
     var content = "<h1>Portal Page<\h1>";
     httpServer.sendResponse(response, content, 200);
 }
 
-routeHandler["/monitor"] = function (response) {
-    var content = "<h1>Public View<\h1>";
-    httpServer.sendResponse(response, content, 200);
+route_handler["/monitor"] = function (response) {
+	dbConnector.getOrderedCharList(response, httpServer.sendResponse);
+    // var content = "<h1>Public View<\h1>";
+    // httpServer.sendResponse(response, content, 200);
 }
 
-routeHandler["/moderator"] = function (response) {
+route_handler["/moderator"] = function (response) {
     var content = "<h1>Moderator View<\h1>";
     httpServer.sendResponse(response, content, 200);
 }
 
-routeHandler["/player"] = function (response) {
+route_handler["/player"] = function (response) {
     var content = "<h1>Player View<\h1>";
     httpServer.sendResponse(response, content, 200);
 }

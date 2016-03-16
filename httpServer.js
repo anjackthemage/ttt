@@ -3,14 +3,14 @@ var url = require("url");
 
 function startServer(route) {
 	function onRequest(request, response) {
-		var pathname = url.parse(request.url).pathname;
+		var path_name = url.parse(request.url).pathname;
         // DEBUG START
-		console.log("Request received: " + pathname);
-		console.log("Request " + request.method + ": " + pathname + ".\nHeaders:\n", request.headers, "\nTrailers:\n", request.trailers);
+		console.log("Request received: " + path_name);
+		console.log("Request " + request.method + ": " + path_name + ".\nHeaders:\n", request.headers, "\nTrailers:\n", request.trailers);
 		// DEBUG END
         
         if (request.method = 'GET') {
-            route(pathname, response);
+            route(path_name, response);
         };
 		
 	}
