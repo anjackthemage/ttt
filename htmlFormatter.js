@@ -5,8 +5,9 @@ function convertListToHTML(response, callback, result_list) {
 	result_list.forEach(function(result) {
 		content += "<br>Name: " + result.name + " Initiative: " + result.init + " " + result.stat1name + ": " + result.stat1value;
 	});
-	
-	callback(response, content, 200);
+	// Should actually consider checking for errors at some point.
+	var error = null;
+	callback(error, response, content, 200);
 }
 
 exports.convertListToHTML = convertListToHTML;

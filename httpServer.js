@@ -21,7 +21,7 @@ function startServer(route) {
     // DEBUG END
 }
 
-function sendResponse(response, content, code) {
+function sendResponse(error, response, content, code) {
     // DEBUG START
     //console.log("Sending response.")
     // DEBUG END
