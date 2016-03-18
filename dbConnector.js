@@ -1,4 +1,4 @@
-var htmlFormatter = require('./htmlFormatter');
+var monitor = require('./monitor');
 var taffy = require('taffy');
 
 // Define the "database"
@@ -13,7 +13,7 @@ var characters = taffy([{
 }]);
 
 function getOrderedCharList(response, callback) {
-	htmlFormatter.convertListToHTML(response, callback, characters().get());
+	monitor.convertListToHTML(response, callback, characters().get());
 }
 
 exports.getOrderedCharList = getOrderedCharList;

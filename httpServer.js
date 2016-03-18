@@ -25,7 +25,9 @@ function sendResponse(error, response, content, code) {
     // DEBUG START
     //console.log("Sending response.")
     // DEBUG END
-	response.writeHead(code, {"Content-Type": "text/html"});
+	
+	// Need to generate a session id for each new connection.
+	response.writeHead(code, {"Content-Type": "text/html", "Set-Cookie": "sid=THISISATESTCOOKIE"});
 	response.write(content);
 	response.end();
 }
