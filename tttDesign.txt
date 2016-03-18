@@ -3,4 +3,6 @@ taffy DB:
 		*Messages(*game name, sender character name, destination character name[s], content)
 		*Games(game name)
 		[* = planned additions]
-		
+
+Cookies:
+		Need a session cookie with a unique session ID for each new connection. Need to check for existing SID cookie first. Need to tie player data to specific SID. For security, each player/moderator entity should only allow one SID. Newest SID will replace existing SID. New connections must be approved by moderator, so users will be alerted to spoof attempts.

@@ -7,6 +7,10 @@ function startServer(route) {
         // DEBUG START
 		console.log("Request received: " + path_name);
 		console.log("Request " + request.method + ": " + path_name + ".\nHeaders:\n", request.headers, "\nTrailers:\n", request.trailers);
+		if(request.headers.cookie.search(/(sid=\w+)(;|$)/i)) {
+			console.log("**********SESSION ID FOUND**********")
+			console.log(request.headers.cookie.match(/(sid=\w+)(;|$)/i)[0]);
+		}
 		// DEBUG END
         
         if (request.method = 'GET') {
